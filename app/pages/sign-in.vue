@@ -3,7 +3,7 @@
     :schema="signInSchema"
     :state="state"
     @submit="handleSignIn"
-    class="flex w-lg flex-col rounded-xl bg-neutral-950 p-10"
+    class="fixed-height-form relative flex w-lg flex-col scroll-auto rounded-xl bg-neutral-950 p-10 max-sm:w-sm max-sm:p-6"
   >
     <div class="space-y-3 text-center">
       <h1 class="text-3xl font-extrabold">Fazer Login</h1>
@@ -85,6 +85,10 @@
 <script setup lang="ts">
 definePageMeta({
   layout: 'auth',
+})
+
+useHead({
+  title: 'Login',
 })
 
 import type { FormSubmitEvent } from '@nuxt/ui'

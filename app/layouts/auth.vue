@@ -2,11 +2,11 @@
   <main
     class="flex h-screen items-center justify-center bg-black text-neutral-100"
   >
-    <div class="grid grid-cols-2 gap-24">
-      <div class="flex flex-col gap-6">
+    <div class="grid grid-cols-2 gap-24 max-xl:grid-cols-1 max-xl:gap-0">
+      <div class="flex flex-col gap-6 max-xl:hidden">
         <SLogo />
 
-        <div class="mt-4 flex flex-col gap-6">
+        <div class="mt-4 flex flex-col gap-6 max-xl:hidden">
           <h1 class="text-5xl leading-tight font-bold">
             Menos papel, <br />
             <span
@@ -27,6 +27,8 @@
 import SLogo from '~/components/shared/logo.vue'
 
 useHead({
-  title: 'produtiva',
+  titleTemplate: (titleChunk) => {
+    return titleChunk ? `${titleChunk} | Produtiva` : 'Produtiva'
+  },
 })
 </script>
