@@ -16,7 +16,7 @@ export default defineAppConfig({
 
         variant: {
           default:
-            'bg-neutral-900 border-neutral-800 border placeholder:text-neutral-400 rounded-xl focus:bg-neutral-900 hover:bg-neutral-900 text-neutral-100 focus:ring-2 focus:border-primary-500 focus:ring-primary-500',
+            'bg-primary-50 border-neutral-100 border placeholder:text-neutral-500 rounded-xl focus:bg-neutral-100 hover:bg-neutral-100 text-neutral-700 focus:ring-2 focus:border-primary-500 focus:ring-primary-500',
         },
       },
     },
@@ -27,6 +27,15 @@ export default defineAppConfig({
           default: {
             base: 'text-base',
             leadingIcon: 'size-5',
+          },
+        },
+      },
+    },
+    label: {
+      variants: {
+        color: {
+          default: {
+            base: 'text-base text-neutral-700',
           },
         },
       },

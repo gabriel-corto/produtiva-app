@@ -1,13 +1,13 @@
 <template>
   <main
-    class="flex h-screen items-center justify-center bg-black text-neutral-100"
+    class="bg-primary-50 flex h-screen items-center justify-center text-neutral-800"
   >
     <div class="grid grid-cols-2 gap-24 max-xl:grid-cols-1 max-xl:gap-0">
       <div class="flex flex-col gap-6 max-xl:hidden">
         <SLogo />
 
         <div class="mt-4 flex flex-col gap-6 max-xl:hidden">
-          <h1 class="text-5xl leading-tight font-bold">
+          <h1 class="text-5xl leading-tight font-bold text-neutral-700">
             Menos papel, <br />
             <span
               class="bg-gradient-to-r from-blue-400 to-purple-500 bg-clip-text text-transparent"
@@ -24,7 +24,7 @@
 </template>
 
 <script setup lang="ts">
-import SLogo from '~/components/shared/logo.vue'
+import SLogo from '~/components/shared/Logo.vue'
 
 useHead({
   titleTemplate: (titleChunk) => {

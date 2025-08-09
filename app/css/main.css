@@ -2,9 +2,12 @@
 @import '@nuxt/ui';
 
 body {
-  font-family: 'Public Sans', sans-serif;
+  font-family: 'Nunito', sans-serif;
 }
 
+label {
+  color: #525252;
+}
 .fixed-height-form {
   height: 100%;
   overflow-y: auto;
@@ -27,8 +30,9 @@ body {
 }
 
 @theme {
-  --font-sans: 'Public Sans', sans-serif;
+  --font-sans: 'Nunito', sans-serif;
 
+  --color-primary-50: #f3f6ff;
   --color-primary-100: #e0e7ff;
   --color-primary-200: #c7d2fe;
   --color-primary-300: #a5b4fc;
