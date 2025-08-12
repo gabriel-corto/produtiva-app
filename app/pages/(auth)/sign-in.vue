@@ -61,7 +61,7 @@
         :loading="isSubmitting"
         :disabled="isSubmitting"
         size="default"
-        icon="i-lucide-arrow-right"
+        icon="i-lucide-move-right"
         loading-icon="i-lucide-loader-2"
         class="bg-primary-500 hover:bg-primary-600 disabled:bg-primary-400 flex w-full cursor-pointer items-center justify-center gap-2 rounded-xl p-4 text-base font-bold text-neutral-100 transition-colors disabled:cursor-not-allowed"
       />
@@ -90,6 +90,8 @@ useHead({
 import type { FormSubmitEvent } from '@nuxt/ui'
 import { type SignInForm, signInSchema } from '~/schemas/auth'
 
+import AuthService from '~/services/api/auth'
+
 const state = reactive<SignInForm>({
   email: '',
   password: '',
@@ -97,18 +99,25 @@ const state = reactive<SignInForm>({
 
 const isSubmitting = ref(false)
 const toast = useToast()
+const router = useRouter()
 
 async function handleSignIn(event: FormSubmitEvent<SignInForm>) {
   event.preventDefault()
   isSubmitting.value = true
 
-  await new Promise((resolve) => setTimeout(resolve, 1000))
+  try {
+    await AuthService.signIn(event.data)
+    isSubmitting.value = false
 
-  isSubmitting.value = false
+    router.push('/')
+  } catch (error: any) {
+    isSubmitting.value = false
 
-  toast.success({
-    title: 'Login realizado com sucesso',
-    color: 'primary',
-  })
+    toast.add({
+      title: error.data.message.title,
+      description: error.data.message.description,
+      color: 'error',
+    })
+  }
 }
 </script>

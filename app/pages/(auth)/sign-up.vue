@@ -93,7 +93,8 @@ useHead({
 
 import type { FormSubmitEvent } from '@nuxt/ui'
 import { type SignUpForm, signUpSchema } from '~/schemas/auth'
-import { AuthService } from '~/services'
+
+import AuthService from '~/services/api/auth'
 
 const state = reactive<SignUpForm>({
   name: '',
@@ -103,25 +104,30 @@ const state = reactive<SignUpForm>({
 
 const isSubmitting = ref(false)
 const toast = useToast()
+const router = useRouter()
 
 async function handleSignUp(event: FormSubmitEvent<SignUpForm>) {
   event.preventDefault()
+  isSubmitting.value = true
 
   try {
-    const response = await AuthService.SignUp(event.data)
+    const response = await AuthService.signUp(event.data)
+    isSubmitting.value = false
 
     toast.add({
       title: response.message.title,
       color: 'success',
     })
+
+    router.push('/')
   } catch (error: any) {
+    isSubmitting.value = false
+
     toast.add({
       title: error.data.message.title,
       description: error.data.message.description,
       color: 'error',
     })
-
-    console.log(error.data.message.title)
   }
 }
 </script>

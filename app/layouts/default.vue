@@ -24,7 +24,7 @@
         <Navbar />
       </div>
 
-      <AccountFooter />
+      <AccountMenuFooter />
     </aside>
 
     <div class="h-screen overflow-auto">
@@ -41,7 +41,7 @@
 import Header from '~/components/shared/Header.vue'
 import Navbar from '~/components/shared/Navbar.vue'
 
-import AccountFooter from '~/components/shared/AccountFooter.vue'
+import AccountMenuFooter from '~/components/shared/AccountMenuFooter.vue'
 import NewWorkspaceModal from '~/components/pages/workspace/modals/NewWorkspaceModal.vue'
 
 useHead({
