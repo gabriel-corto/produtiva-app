@@ -9,13 +9,7 @@ export default defineNuxtConfig({
 
   css: ['~/css/main.css'],
   ui: {
-    colorMode: true,
-    theme: {
-      defaultVariants: {
-        color: 'neutral',
-        size: 'sm',
-      },
-    },
+    colorMode: false,
     prefix: 'P',
   },
 
@@ -35,6 +29,12 @@ export default defineNuxtConfig({
           href: 'https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap',
         },
       ],
+    },
+  },
+
+  runtimeConfig: {
+    public: {
+      apiBaseURL: process.env.NUXT_PUBLIC_API_BASE,
     },
   },
 })

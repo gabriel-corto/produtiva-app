@@ -10,7 +10,7 @@
       <p>
         Não possui uma conta
         <NuxtLink
-          href="/sign-up"
+          to="/sign-up"
           class="text-primary-400 hover:text-primary-500 font-semibold"
         >
           Cadastre-se
@@ -49,7 +49,7 @@
 
       <div>
         <NuxtLink
-          href="/forgot-password"
+          to="/forgot-password"
           class="text-primary-400 hover:text-primary-500 font-semibold"
           >Recuperar Credenciais</NuxtLink
         >
@@ -106,7 +106,7 @@ async function handleSignIn(event: FormSubmitEvent<SignInForm>) {
 
   isSubmitting.value = false
 
-  toast.add({
+  toast.success({
     title: 'Login realizado com sucesso',
     color: 'primary',
   })

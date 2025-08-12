@@ -53,14 +53,6 @@ useHead({
 const overlay = useOverlay()
 const modal = overlay.create(NewWorkspaceModal)
 
-/*************  ✨ Windsurf Command ⭐  *************/
-/**
- * Abre o modal de cria o de workspace.
- *
- * @remarks
- * Use essa fun o para abrir o modal de cria o de workspace.
- */
-/*******  fbec4ccb-39dc-4330-a711-4aee06e01781  *******/
 async function openModal() {
   modal.open()
 }

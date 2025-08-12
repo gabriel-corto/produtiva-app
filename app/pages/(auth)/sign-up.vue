@@ -10,7 +10,7 @@
       <p>
         Já possui uma conta
         <NuxtLink
-          href="/sign-in"
+          to="/sign-in"
           class="text-primary-400 hover:text-primary-500 font-semibold"
         >
           Fazer Login
@@ -93,6 +93,7 @@ useHead({
 
 import type { FormSubmitEvent } from '@nuxt/ui'
 import { type SignUpForm, signUpSchema } from '~/schemas/auth'
+import { AuthService } from '~/services'
 
 const state = reactive<SignUpForm>({
   name: '',
@@ -105,15 +106,22 @@ const toast = useToast()
 
 async function handleSignUp(event: FormSubmitEvent<SignUpForm>) {
   event.preventDefault()
-  isSubmitting.value = true
 
-  await new Promise((resolve) => setTimeout(resolve, 1000))
+  try {
+    const response = await AuthService.SignUp(event.data)
 
-  isSubmitting.value = false
+    toast.add({
+      title: response.message.title,
+      color: 'success',
+    })
+  } catch (error: any) {
+    toast.add({
+      title: error.data.message.title,
+      description: error.data.message.description,
+      color: 'error',
+    })
 
-  toast.add({
-    title: 'Conta criada com sucesso',
-    color: 'primary',
-  })
+    console.log(error.data.message.title)
+  }
 }
 </script>

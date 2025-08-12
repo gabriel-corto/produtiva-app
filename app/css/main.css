@@ -13,6 +13,12 @@ label {
   overflow-y: auto;
   -webkit-overflow-scrolling: touch;
 }
+input:-webkit-autofill {
+  background-color: transparent !important;
+  -webkit-box-shadow: 0 0 0 1000px white inset !important;
+  -webkit-text-fill-color: #1f2937 !important;
+  transition: background-color 5000s ease-in-out 0s;
+}
 
 @media screen and (max-width: 640px) {
   input,

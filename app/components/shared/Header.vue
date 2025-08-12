@@ -35,9 +35,10 @@ import { PlusIcon } from 'lucide-vue-next'
 import NewWorkspaceModal from '../pages/workspace/modals/NewWorkspaceModal.vue'
 
 const overlay = useOverlay()
-const modal = overlay.create(NewWorkspaceModal)
 
-async function openModal() {
-  modal.open()
+function openModal() {
+  overlay.create(NewWorkspaceModal, {
+    defaultOpen: true,
+  })
 }
 </script>
