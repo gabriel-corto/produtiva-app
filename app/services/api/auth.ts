@@ -9,7 +9,6 @@ async function signUp(data: SignUpData) {
   const response = await apiClient(`${PREFIX}/sign-up`, {
     method: 'POST',
     body: data,
-    credentials: 'include',
   })
 
   return response as SignUpResponse
@@ -21,7 +20,6 @@ async function signIn(data: SignInData) {
   const response = await apiClient(`${PREFIX}/sign-in`, {
     method: 'POST',
     body: data,
-    credentials: 'include',
   })
 
   return response as SignUpResponse

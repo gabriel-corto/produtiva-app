@@ -12,6 +12,11 @@ export default defineAppConfig({
             leading: 'ps-3',
             leadingIcon: 'size-5',
           },
+          sm: {
+            base: 'p-3 h-10 text-base gap-2 ps-11',
+            leading: 'ps-3',
+            leadingIcon: 'size-5',
+          },
         },
 
         variant: {

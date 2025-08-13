@@ -3,6 +3,7 @@ export const useApiClient = () => {
 
   const apiClient = $fetch.create({
     baseURL: config.public.apiBaseURL,
+    credentials: 'include',
   })
 
   return apiClient

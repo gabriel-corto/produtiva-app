@@ -5,9 +5,7 @@ const PREFIX = '/me'
 async function getMe() {
   const apiClient = useApiClient()
 
-  const response: Me = await apiClient(`${PREFIX}`, {
-    credentials: 'include',
-  })
+  const response: Me = await apiClient(`${PREFIX}`)
 
   return response
 }
