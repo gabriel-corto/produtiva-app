@@ -62,6 +62,7 @@ const state = reactive<CreateWorkspaceForm>({
 
 const isSubmitting = ref(false)
 const toast = useToast()
+const emit = defineEmits(['close'])
 
 async function handleCreateWorkspace(
   event: FormSubmitEvent<CreateWorkspaceForm>,
@@ -77,6 +78,8 @@ async function handleCreateWorkspace(
       title: response.message.title,
       color: 'success',
     })
+
+    emit('close')
   } catch (error: any) {
     isSubmitting.value = false
 

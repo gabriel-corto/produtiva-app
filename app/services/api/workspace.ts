@@ -1,7 +1,8 @@
 import type { ApiResponse } from '~/types/api'
 import type { CreateWorkspaceData } from '~/types/forms'
+import type { Workspace } from '~/types/schema'
 
-const PREFIX = '/workspace'
+const PREFIX = '/workspaces'
 
 async function createWorkspace(data: CreateWorkspaceData) {
   const apiClient = useApiClient()
@@ -14,4 +15,20 @@ async function createWorkspace(data: CreateWorkspaceData) {
   return response as ApiResponse
 }
 
-export default { createWorkspace }
+async function getWorkspaces() {
+  const apiClient = useApiClient()
+
+  const response: Workspace[] = await apiClient(`${PREFIX}/my`)
+
+  return response
+}
+
+async function getCurrentWorkspace() {
+  const apiClient = useApiClient()
+
+  const response: Workspace = await apiClient(`${PREFIX}/current`)
+
+  return response
+}
+
+export default { createWorkspace, getCurrentWorkspace, getWorkspaces }

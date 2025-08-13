@@ -2,7 +2,7 @@
   <PForm
     :schema="signUpSchema"
     :state="state"
-    @submit="handleSignUp"
+    @submit.prevent="handleSignUp"
     class="fixed-height-form relative flex w-lg flex-col scroll-auto rounded-4xl border border-neutral-200 bg-white p-10 shadow-md max-sm:w-sm max-sm:border-0 max-sm:p-6 max-sm:shadow-none"
   >
     <div class="space-y-3 text-center">
@@ -107,7 +107,6 @@ const toast = useToast()
 const router = useRouter()
 
 async function handleSignUp(event: FormSubmitEvent<SignUpForm>) {
-  event.preventDefault()
   isSubmitting.value = true
 
   try {
